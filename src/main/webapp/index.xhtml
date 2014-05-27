@@ -3,6 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:composition template="/WEB-INF/template.xhtml">
@@ -13,18 +14,22 @@
                 <ui:include src="#{pageFlow.state.page}" />
                 <h:messages/>
             </h:panelGroup>
-
+           
             <p>
                 <h:form>
                     <div>
-                        <h:commandButton value="Shift one" actionListener="#{pageFlow.shiftOne}"/>
+                        <p:commandButton value="Shift one" actionListener="#{pageFlow.shiftOne}" update=":include"/>
                     </div>
                     <div>
-                        <h:commandButton value="Shift zero" actionListener="#{pageFlow.shiftZero}"/>
+                        <p:commandButton value="Shift zero" actionListener="#{pageFlow.shiftZero}" update=":include"/>
                     </div>
                 </h:form>
-            </p>
+            </p>    
+            
+            Date in index: <h:outputText value="#{pageFlow.date}"/>
+        
         </ui:define>
+        
     </ui:composition>
 
 </html>

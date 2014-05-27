@@ -1,25 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-  <h:head>
-    <title>Single page - Index</title>
-    <h:outputStylesheet library="css" name="default.css"/>
+    <h:head>
+        <title>Single page - Index</title>
+        
+    </h:head>
+    <h:body>
+        <h1>Index</h1>
 
-  </h:head>
-  <h:body>
-    <h1>Index</h1>
+        <p:outputPanel id="info" autoUpdate="true">      
+            <p>
+                State: <h:outputText id="stateinfo" value="#{pageFlow.state}" class="stateinfo"/>
+            </p>
+            <p>
+                Date in template: <h:outputText value="#{pageFlow.date}"/>
+            </p>            
+        </p:outputPanel>
 
-    <p:outputPanel id="info" autoUpdate="true">      
-      <p>
-        State: <h:outputText id="stateinfo" value="#{pageFlow.state}" class="stateinfo"/>
-      </p>
-    </p:outputPanel>
+        <ui:insert name="content"/>
 
-    <ui:insert name="content"/>
-    
-  </h:body>
+    </h:body>
 </html>
 

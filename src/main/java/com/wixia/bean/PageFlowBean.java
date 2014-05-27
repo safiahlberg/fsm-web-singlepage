@@ -4,6 +4,8 @@ import com.wixia.state.WebState;
 import com.wixia.toolbox.fsm.FSMBuilder;
 import com.wixia.toolbox.fsm.FSMControl;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Logger;
 import javax.faces.application.ConfigurableNavigationHandler;
 import javax.faces.bean.ManagedBean;
@@ -36,11 +38,15 @@ public class PageFlowBean implements Serializable {
       state.shiftZero();
   }
   
-
+  public String getDate() {
+      SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+      return date.format(new Date());
+  }
+  
   public void preRenderView(ComponentSystemEvent event) {
     LOGGER.info("PageFlowBean.preRenderView");    
   }
-
+  
   private void navigate() {
     ConfigurableNavigationHandler navigationHandler = (ConfigurableNavigationHandler) FacesContext.getCurrentInstance().getApplication().getNavigationHandler();
     navigationHandler.performNavigation(state.getClass().getName());
