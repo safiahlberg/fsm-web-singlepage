@@ -14,22 +14,16 @@
                 <ui:include src="#{pageFlow.state.page}" />
                 <h:messages/>
             </h:panelGroup>
-           
-            <p>
-                <h:form>
-                    <div>
-                        <p:commandButton value="Shift one" actionListener="#{pageFlow.shiftOne}" update=":include"/>
-                    </div>
-                    <div>
-                        <p:commandButton value="Shift zero" actionListener="#{pageFlow.shiftZero}" update=":include"/>
-                    </div>
-                </h:form>
-            </p>    
+
+            <h:form id="shiftform">
+                <p:commandButton id="shiftOne" value="Shift one" actionListener="#{pageFlow.shiftOne}" update=":include"/>
+                <p:commandButton id="shiftZero" value="Shift zero" actionListener="#{pageFlow.shiftZero}" update=":include"/>                    
+            </h:form>
+
+            <h:outputText value="Date in index: "/> <h:outputText value="#{pageFlow.date}"/>
             
-            Date in index: <h:outputText value="#{pageFlow.date}"/>
-        
         </ui:define>
-        
+
     </ui:composition>
 
 </html>

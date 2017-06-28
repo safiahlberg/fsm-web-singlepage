@@ -6,19 +6,18 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Single page - Index</title>
-        
+        <title>Single page - Index</title>        
     </h:head>
     <h:body>
         <h1>Index</h1>
 
         <p:outputPanel id="info" autoUpdate="true">      
-            <p>
-                State: <h:outputText id="stateinfo" value="#{pageFlow.state}" class="stateinfo"/>
-            </p>
-            <p>
-                Date in template: <h:outputText value="#{pageFlow.date}"/>
-            </p>            
+            <div>
+            <h:outputText value="State: " /> <h:outputText value="#{pageFlow.state}" />
+            </div>
+            <div>
+            <h:outputText value="Date in template: " /> <h:outputText value="#{pageFlow.date}" />
+            </div>
         </p:outputPanel>
 
         <ui:insert name="content"/>
